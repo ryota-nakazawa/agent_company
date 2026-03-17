@@ -1,0 +1,4 @@
+interface:
+  display_name: "出荷準備"
+  short_description: "実装、検証、最終確認まで進めるスキル"
+  default_prompt: "$gstack-ship を使って、この変更を検証と最終確認まで進めてください。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "トレンド調査"
+  short_description: "最新の需要、競合、市場シグナルを調べるスキル"
+  default_prompt: "$trend-research を使って、最新の市場需要とアプリ機会のシグナルを調査してください。"

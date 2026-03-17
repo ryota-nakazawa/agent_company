@@ -1,0 +1,4 @@
+interface:
+  display_name: "レビュー"
+  short_description: "不具合、回帰、テスト不足を重点確認するスキル"
+  default_prompt: "$gstack-review を使って、この変更を不具合、回帰、テスト不足の観点でレビューしてください。"

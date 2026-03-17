@@ -1,0 +1,4 @@
+interface:
+  display_name: "プロダクト企画"
+  short_description: "調査結果をMVPと優先順位に変える企画スキル"
+  default_prompt: "$product-planning を使って、この調査結果から作るべきプロダクト案とMVPを定義してください。"

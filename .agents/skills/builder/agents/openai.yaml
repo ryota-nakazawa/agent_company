@@ -1,0 +1,4 @@
+interface:
+  display_name: "ビルダー"
+  short_description: "調査や設計を実装に変える開発スキル"
+  default_prompt: "$builder を使って、この要件を実装可能な変更に落としてコードを書いてください。"
