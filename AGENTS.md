@@ -12,6 +12,6 @@
 
 ### How to use skills
 - Trigger rules: ユーザーが skill 名を明示したとき、または依頼内容が上の説明に明確に一致するときは、その `SKILL.md` を開いて従う。
-- Company model: 役割分担の基準は [ORG_CHART.md](/Users/ryota/Desktop/エージェント作成/agent_team/ORG_CHART.md) を使う。
+- Company model: 役割分担の基準は [README.md](/Users/ryota/Desktop/エージェント作成/agent_team/README.md) の「組織モデル」を使う。
 - Sequencing: 広い依頼は `secretary-router` を先に使い、最新性が重要なら `trend-research` を企画前に使い、何を作るかを固めるときは `product-planning`、実装前は `gstack-plan-eng-review`、実装は `builder`、必要なら `ui-polish` で仕上げ、マージ前は `gstack-review`、最後の実行と引き渡しは `gstack-ship`、節目の記録は `project-log` を使う。
 - Context hygiene: 最初に関係する `SKILL.md` だけを読み、必要になったときだけ他のローカルファイルを読む。

@@ -24,10 +24,81 @@ Codex の agent skills を使って、`調査 -> 企画 -> 設計 -> 実装 -> U
 - そのまま Codex に実装、レビュー、出荷確認まで進めてほしい
 - 作業の経緯を Markdown で残したい
 
+## 組織モデル
+
+```mermaid
+flowchart TD
+    CEO["CEO<br/>最終方針と優先順位を決める"]
+    SR["Secretary Router<br/>依頼を分解し担当へ振り分ける"]
+    TR["Trend Research<br/>最新情報と需要を調査する"]
+    PP["Product Planning<br/>何を作るかとMVPを定義する"]
+    BD["Builder<br/>実装を進める"]
+    UP["UI Polish<br/>見た目と操作感を整える"]
+    RV["Review<br/>不具合と回帰を見つける"]
+    SH["Ship<br/>出荷可否を判定する"]
+    PL["Project Log<br/>判断と実装履歴を記録する"]
+    DR["Demo Recorder<br/>デモ素材と動画を作る"]
+
+    CEO --> SR
+    CEO --> PP
+    SR --> TR
+    SR --> PP
+    SR --> BD
+    SR --> UP
+    SR --> RV
+    SR --> SH
+    SR --> PL
+    SR --> DR
+    TR --> PP
+    PP --> BD
+    BD --> UP
+    UP --> RV
+    BD --> RV
+    RV --> SH
+    BD --> PL
+    UP --> PL
+    RV --> PL
+    SH --> PL
+    SH --> DR
+```
+
+### 役割
+
+- `CEO`
+  - 最終方針と優先順位を決める
+- `secretary-router`
+  - 依頼を分解し、どの skill に回すか決める
+- `trend-research`
+  - 最新の外部情報を調べる
+- `product-planning`
+  - 調査結果から、作るべきプロダクト案と MVP を決める
+- `builder`
+  - 実装を進める
+- `ui-polish`
+  - 見た目と操作感を整える
+- `gstack-review`
+  - 不具合、回帰、テスト不足を見つける
+- `gstack-ship`
+  - 最終確認と handoff を行う
+- `project-log`
+  - 判断と作業履歴を残す
+- `demo-recorder`
+  - 将来的にデモ素材や動画を作る
+
+### 基本フロー
+
+1. `secretary-router` で依頼を分解する
+2. 必要なら `trend-research` で最新情報を調べる
+3. `product-planning` で何を作るかを決める
+4. `gstack-plan-eng-review` で実装方針を固める
+5. `builder` で実装する
+6. 必要なら `ui-polish` で見た目を整える
+7. `gstack-review` でレビューする
+8. `gstack-ship` で最終確認する
+9. `project-log` で記録を残す
+
 ## フォルダ構成
 
-- `ORG_CHART.md`
-  - エージェント会社の組織図と標準フロー
 - `AGENTS.md`
   - この workspace で使う skill 一覧と使い分け
 - `.agents/skills/`
@@ -50,11 +121,11 @@ Codex の agent skills を使って、`調査 -> 企画 -> 設計 -> 実装 -> U
 
 ## まず読むファイル
 
-1. `ORG_CHART.md`
+1. `README.md`
 2. `AGENTS.md`
 3. 必要な role の `SKILL.md`
 
-最初に `ORG_CHART.md` で全体像を掴み、その後 `AGENTS.md` で使える skill を見てください。
+最初にこの README で全体像を掴み、その後 `AGENTS.md` で使える skill を見てください。
 
 ## Skill 一覧
 
