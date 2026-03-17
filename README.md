@@ -14,11 +14,15 @@ Codex の agent skills を使って、「最新情報を調査し、需要のあ
   - `trend-research`
   - `product-planning`
   - `builder`
+  - `ui-polish`
+  - `project-log`
   - `gstack-plan-eng-review`
   - `gstack-review`
   - `gstack-ship`
 - `demo/kosodate-compass/`
   - 子育て支援をテーマにした MVP デモアプリ
+- `logs/`
+  - 作業ログと判断履歴
 
 ## 目的
 
@@ -33,6 +37,5 @@ Codex の agent skills を使って、「最新情報を調査し、需要のあ
 
 ## 次の拡張候補
 
-- `project-log`
-- `demo-recorder`
 - `browser-qa`
+- `demo-recorder`

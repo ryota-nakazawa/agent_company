@@ -1,0 +1,4 @@
+interface:
+  display_name: "プロジェクト記録"
+  short_description: "実装判断と検証履歴をMarkdownで残す記録スキル"
+  default_prompt: "$project-log を使って、この作業内容をMarkdownログとして整理してください。"

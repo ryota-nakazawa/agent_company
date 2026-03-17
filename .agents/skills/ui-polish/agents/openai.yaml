@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI改善"
+  short_description: "作成済みアプリの見た目と操作感を整える改善スキル"
+  default_prompt: "$ui-polish を使って、このアプリのUIを整理し、使いやすさを改善してください。"

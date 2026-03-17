@@ -13,6 +13,7 @@ flowchart TD
     TR["Trend Research<br/>最新情報と需要を調査する"]
     PP["Product Planning<br/>何を作るかとMVPを定義する"]
     BD["Builder<br/>実装を進める"]
+    UP["UI Polish<br/>見た目と操作感を整える"]
     RV["Review<br/>不具合と回帰を見つける"]
     SH["Ship<br/>出荷可否を判定する"]
     PL["Project Log<br/>判断と実装履歴を記録する"]
@@ -23,15 +24,19 @@ flowchart TD
     SR --> TR
     SR --> PP
     SR --> BD
+    SR --> UP
     SR --> RV
     SR --> SH
     SR --> PL
     SR --> DR
     TR --> PP
     PP --> BD
+    BD --> UP
+    UP --> RV
     BD --> RV
     RV --> SH
     BD --> PL
+    UP --> PL
     RV --> PL
     SH --> PL
     SH --> DR
@@ -67,20 +72,25 @@ flowchart TD
 - 承認済みのスコープを実装する
 - 変更を小さく、検証しやすく、段階的に保つ
 
-### 6. Review
+### 6. UI Polish
+
+- 実装済みアプリの見た目、情報階層、操作導線を整える
+- デモ前やレビュー前に第一印象と理解しやすさを上げる
+
+### 7. Review
 
 - マージ前に不具合、回帰、契約不整合、テスト不足を見つける
 
-### 7. Ship
+### 8. Ship
 
 - 検証結果を確認し、マージまたはリリース可否を判定する
 
-### 8. Project Log
+### 9. Project Log
 
 - 判断、実装の節目、検証結果を記録する
 - 次回以降に再利用できるプロジェクト記憶を作る
 
-### 9. Demo Recorder
+### 10. Demo Recorder
 
 - スクリーンショット、台本、動画などのデモ素材を作る
 
@@ -89,7 +99,7 @@ flowchart TD
 - CEO が最終方針を持つ
 - Secretary Router が依頼を受けて各役割を調整する
 - Trend Research と Product Planning が CEO の判断材料を作る
-- Builder、Review、Ship、Project Log、Demo Recorder が承認後の実行を担う
+- Builder、UI Polish、Review、Ship、Project Log、Demo Recorder が承認後の実行を担う
 
 ## 標準フロー
 
@@ -98,10 +108,11 @@ flowchart TD
 3. 最新情報が必要なら Trend Research が証拠を集める
 4. Product Planning が作るべき案と MVP を定義する
 5. Builder が承認済みスコープを実装する
-6. Review が変更のリスクを点検する
-7. Ship が出荷可否と残リスクを整理する
-8. Project Log が判断と作業結果を記録する
-9. Demo Recorder が必要に応じてデモ素材を作る
+6. UI Polish が必要に応じて画面の見た目と導線を整える
+7. Review が変更のリスクを点検する
+8. Ship が出荷可否と残リスクを整理する
+9. Project Log が判断と作業結果を記録する
+10. Demo Recorder が必要に応じてデモ素材を作る
 
 ## 初期実装順
 
@@ -110,6 +121,7 @@ flowchart TD
 3. Product Planning
 4. Builder
 5. Project Log
-6. Demo Recorder
+6. UI Polish
+7. Demo Recorder
 
-この順番にすると、入口、最新情報、企画、実装、記録、実行支援を先に整えたうえで組織を拡張できる。
+この順番にすると、入口、最新情報、企画、実装、記録、UI改善、実行支援を先に整えたうえで組織を拡張できる。
