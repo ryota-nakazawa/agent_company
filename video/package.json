@@ -1,0 +1,20 @@
+{
+  "name": "agent-company-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Remotion project for agent_company demo videos",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:agent-company": "remotion render src/index.ts AgentCompanyShowcase renders/agent-company-showcase.mp4",
+    "still:agent-company": "remotion still src/index.ts AgentCompanyShowcase renders/agent-company-poster.png --frame=45",
+    "render:skill-sprint-coach": "remotion render src/index.ts SkillSprintCoachShowcase renders/skill-sprint-coach.mp4",
+    "still:skill-sprint-coach": "remotion still src/index.ts SkillSprintCoachShowcase renders/skill-sprint-coach-poster.png --frame=45"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.436",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "remotion": "4.0.436",
+    "zod": "4.3.6"
+  }
+}

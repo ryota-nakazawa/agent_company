@@ -1,0 +1,4 @@
+interface:
+  display_name: "デモ動画作成"
+  short_description: "Remotion を使って成果物の短い紹介動画を作る"
+  default_prompt: "$demo-recorder を使って、この成果物を 30〜60 秒のデモ動画にしてください。"

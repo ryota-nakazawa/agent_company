@@ -23,6 +23,7 @@ Codex の agent skills を使って、`調査 -> 企画 -> 設計 -> 実装 -> U
 - 見つけた案を MVP に落とし込みたい
 - そのまま Codex に実装、レビュー、出荷確認まで進めてほしい
 - 作業の経緯を Markdown で残したい
+- 作ったアプリや成果物を短い紹介動画として残したい
 
 ## 組織モデル
 
@@ -67,7 +68,7 @@ flowchart TD
 - `CEO`
   - 最終方針と優先順位を決める
 - `secretary-router`
-  - 依頼を分解し、どの skill に回すか決める
+  - 依頼を分解し、どの skill に回すか決め、必要なら最後まで進行管理する
 - `trend-research`
   - 最新の外部情報を調べる
 - `product-planning`
@@ -83,7 +84,7 @@ flowchart TD
 - `project-log`
   - 判断と作業履歴を残す
 - `demo-recorder`
-  - 将来的にデモ素材や動画を作る
+  - Remotion を使ってデモ素材や紹介動画を作る
 
 ### 基本フロー
 
@@ -96,6 +97,7 @@ flowchart TD
 7. `gstack-review` でレビューする
 8. `gstack-ship` で最終確認する
 9. `project-log` で記録を残す
+10. 必要なら `demo-recorder` で動画化する
 
 ## フォルダ構成
 
@@ -109,9 +111,13 @@ flowchart TD
   - `builder`
   - `ui-polish`
   - `project-log`
+  - `demo-recorder`
   - `gstack-plan-eng-review`
   - `gstack-review`
   - `gstack-ship`
+- `video/`
+  - Remotion を使った動画テンプレート
+  - `demo-recorder` が使う動画生成基盤
 - `demo/`
   - ローカルで作るアプリの生成物置き場
   - Git 管理外
@@ -131,12 +137,13 @@ flowchart TD
 
 ### `secretary-router`
 
-広い依頼を具体的なタスクへ分解し、どの role に回すかを決める受付役です。
+広い依頼を具体的なタスクへ分解し、どの role に回すかを決め、必要なら最後まで進める実行ディレクター役です。
 
 使う場面:
 - 依頼が曖昧
 - 複数の工程が混ざっている
 - まず何から始めるべきか決めたい
+- 調査から実装、動画化までを一気通貫で進めたい
 
 ### `trend-research`
 
@@ -167,7 +174,7 @@ flowchart TD
 
 ### `builder`
 
-企画や設計を、実際のコード変更に落とす実装役です。
+企画や設計を、実際のコード変更に落とす実装役です。標準プリセットとして、React、Node.js + Express、JSON ベースの擬似データ層、独自 API を持ちますが、これは必須ではなく第一選択です。
 
 使う場面:
 - 機能追加
@@ -210,6 +217,20 @@ flowchart TD
 - 実装理由を残したい
 - 作業内容を次回へ引き継ぎたい
 
+### `demo-recorder`
+
+実装済みアプリや agent_company の成果を、Remotion を使った短いデモ動画に変える役です。
+
+使う場面:
+- 成果物を紹介したい
+- デモ動画を作りたい
+- 作業結果を動画として残したい
+
+### 動画プロジェクト
+
+動画生成には [video/README.md](/Users/ryota/Desktop/エージェント作成/agent_team/video/README.md) の Remotion プロジェクトを使います。
+現時点では、`AgentCompanyShowcase` と `SkillSprintCoachShowcase` の composition を用意しています。
+
 ## 推奨ワークフロー
 
 基本は次の順です。
@@ -223,9 +244,29 @@ flowchart TD
 7. `gstack-review`
 8. `gstack-ship`
 9. `project-log`
+10. `demo-recorder`
 
 すべて毎回使う必要はありません。  
 例えば既に作るものが決まっているなら、`trend-research` と `product-planning` は省略できます。
+
+## 動画の使い方
+
+Remotion を使った動画生成は `video/` 配下で行います。
+
+```bash
+cd /Users/ryota/Desktop/エージェント作成/agent_team/video
+npm install
+npm run studio
+```
+
+既存テンプレートの出力例:
+
+```bash
+npm run render:agent-company
+npm run render:skill-sprint-coach
+```
+
+生成物は `video/renders/` に出力され、Git 管理外です。
 
 ## 実際の呼び方
 

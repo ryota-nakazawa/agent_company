@@ -1,4 +1,4 @@
 interface:
-  display_name: "受付ルーター"
-  short_description: "依頼を分解し担当と順序を決める受付スキル"
-  default_prompt: "$secretary-router を使って、この依頼をタスク分解し、適切な担当へ割り振ってください。"
+  display_name: "実行ディレクター"
+  short_description: "依頼を分解し、担当・順序・完了条件を決めて最後まで進行管理する"
+  default_prompt: "$secretary-router を使って、この依頼を実行計画に落とし、必要なら一気通貫で最後まで進める前提でディレクションしてください。"
