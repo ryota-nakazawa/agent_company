@@ -8,7 +8,10 @@
     "render:agent-company": "remotion render src/index.ts AgentCompanyShowcase renders/agent-company-showcase.mp4",
     "still:agent-company": "remotion still src/index.ts AgentCompanyShowcase renders/agent-company-poster.png --frame=45",
     "render:skill-sprint-coach": "remotion render src/index.ts SkillSprintCoachShowcase renders/skill-sprint-coach.mp4",
-    "still:skill-sprint-coach": "remotion still src/index.ts SkillSprintCoachShowcase renders/skill-sprint-coach-poster.png --frame=45"
+    "still:skill-sprint-coach": "remotion still src/index.ts SkillSprintCoachShowcase renders/skill-sprint-coach-poster.png --frame=45",
+    "capture:manifest": "node scripts/scaffold-capture-manifest.mjs",
+    "render:captured-demo": "node scripts/render-captured-demo.mjs",
+    "still:captured-demo": "node scripts/still-captured-demo.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.436",

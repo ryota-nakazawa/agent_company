@@ -1,0 +1,38 @@
+{
+  "appName": "Sample Captured App",
+  "title": "Captured App Showcase",
+  "subtitle": "Playwright で取得した画面素材をそのまま紹介動画にまとめるサンプル",
+  "hook": "主要画面を3枚に絞って、短い紹介動画へ変換するテンプレート",
+  "badge": "Playwright Capture",
+  "cta": "次は実アプリのキャプチャを差し替えて、そのまま成果共有動画にする。",
+  "highlights": [
+    "スクリーンショットだけで短い紹介動画を作れる",
+    "Playwright の固定ファイル名で差し替えやすい",
+    "app ごとに manifest を分けて運用できる"
+  ],
+  "screenshots": [
+    {
+      "src": "captures/sample/01-hero.svg",
+      "title": "導入画面",
+      "caption": "価値提案と CTA が見える最初の画面を入れる。"
+    },
+    {
+      "src": "captures/sample/02-flow.svg",
+      "title": "主要導線",
+      "caption": "フォーム入力や主要フローが分かる場面を入れる。"
+    },
+    {
+      "src": "captures/sample/03-result.svg",
+      "title": "結果画面",
+      "caption": "最終的にユーザーが得る結果や一覧を見せる。"
+    }
+  ],
+  "theme": {
+    "background": "#0f172a",
+    "surface": "#111c36",
+    "accent": "#7dd3fc",
+    "accentSoft": "rgba(125, 211, 252, 0.18)",
+    "text": "#ecf4ff",
+    "muted": "#9fb3d8"
+  }
+}

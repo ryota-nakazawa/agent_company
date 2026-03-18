@@ -84,7 +84,7 @@ flowchart TD
 - `project-log`
   - 判断と作業履歴を残す
 - `demo-recorder`
-  - Remotion を使ってデモ素材や紹介動画を作る
+  - Playwright と Remotion を使ってデモ素材や紹介動画を作る
 
 ### 基本フロー
 
@@ -112,6 +112,7 @@ flowchart TD
   - `ui-polish`
   - `project-log`
   - `demo-recorder`
+  - `playwright-cli`
   - `gstack-plan-eng-review`
   - `gstack-review`
   - `gstack-ship`
@@ -219,17 +220,26 @@ flowchart TD
 
 ### `demo-recorder`
 
-実装済みアプリや agent_company の成果を、Remotion を使った短いデモ動画に変える役です。
+実装済みアプリや agent_company の成果を、Playwright で取得した画面素材と Remotion を使って短いデモ動画に変える役です。
 
 使う場面:
 - 成果物を紹介したい
 - デモ動画を作りたい
 - 作業結果を動画として残したい
 
+### `playwright-cli`
+
+ローカルアプリや外部サイトをブラウザで操作し、スクリーンショットや簡易 QA 素材を取る役です。主に `demo-recorder` の前段で使います。
+
+使う場面:
+- 実アプリの画面素材を取りたい
+- 主要導線を手元で再現したい
+- デモ動画用のスクリーンショットを安定して保存したい
+
 ### 動画プロジェクト
 
 動画生成には [video/README.md](/Users/ryota/Desktop/エージェント作成/agent_team/video/README.md) の Remotion プロジェクトを使います。
-現時点では、`AgentCompanyShowcase` と `SkillSprintCoachShowcase` の composition を用意しています。
+現時点では、`AgentCompanyShowcase`、`SkillSprintCoachShowcase`、`CapturedAppShowcase` の composition を用意しています。
 
 ## 推奨ワークフロー
 

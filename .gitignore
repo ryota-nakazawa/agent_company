@@ -1,5 +1,11 @@
 demo/
 logs/
+.DS_Store
+.playwright-cli/
 video/node_modules/
 video/renders/
 video/out/
+video/public/captures/*
+!video/public/captures/.gitkeep
+!video/public/captures/sample/
+!video/public/captures/sample/**

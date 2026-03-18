@@ -31,6 +31,7 @@ npm run studio
 ```bash
 npm run render:agent-company
 npm run render:skill-sprint-coach
+npm run render:captured-demo -- captures/sample/manifest.json renders/sample-captured-demo.mp4
 ```
 
 静止画プレビュー:
@@ -38,6 +39,7 @@ npm run render:skill-sprint-coach
 ```bash
 npm run still:agent-company
 npm run still:skill-sprint-coach
+npm run still:captured-demo -- captures/sample/manifest.json renders/sample-captured-demo.png
 ```
 
 ## 出力先
@@ -53,5 +55,36 @@ npm run still:skill-sprint-coach
   - `agent_company` 全体の紹介動画
 - `SkillSprintCoachShowcase`
   - 生成AI時代のスキルアップをテーマにしたアプリ紹介動画
+- `CapturedAppShowcase`
+  - Playwright で取得したスクリーンショットを差し込む汎用アプリ紹介動画
+
+## Playwright 連携フロー
+
+1. キャプチャ用ディレクトリを作る
+
+```bash
+cd /Users/ryota/Desktop/エージェント作成/agent_team/video
+npm run capture:manifest -- ai-skill-sprint-coach "AI Skill Sprint Coach" "14日分の学習スプリントを返すアプリ"
+```
+
+2. `playwright-cli` でアプリを開いて素材を取る
+
+```bash
+playwright-cli -s=skill-sprint open http://localhost:4331
+playwright-cli -s=skill-sprint resize 1440 980
+playwright-cli -s=skill-sprint screenshot --filename=/Users/ryota/Desktop/エージェント作成/agent_team/video/public/captures/ai-skill-sprint-coach/01-hero.png
+playwright-cli -s=skill-sprint snapshot
+```
+
+必要なら `02-flow.png`、`03-result.png`、`demo.webm` を同じディレクトリに追加します。
+
+3. `video/public/captures/<slug>/manifest.json` を編集してタイトルや説明を整える
+
+4. manifest を元に動画をレンダリングする
+
+```bash
+cd /Users/ryota/Desktop/エージェント作成/agent_team/video
+npm run render:captured-demo -- captures/ai-skill-sprint-coach/manifest.json renders/ai-skill-sprint-coach-demo.mp4
+```
 
 `renders/` は生成物なので Git 管理外です。
